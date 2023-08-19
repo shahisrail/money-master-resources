@@ -20,8 +20,12 @@ function calculateSavings() {
         return;
     }
     const savingAmount = (income * savePercentage) / 100;
-    const remainingBalance = income - savingAmount;
-    
+    const balance = document.getElementById("balance").innerText;
+    const remainingBalance = balance - savingAmount;
+
+    if (savingAmount > balance) {
+        alert("SavingAmount is greater than balance");
+    } else
     document.getElementById('saving-amount').textContent = savingAmount.toFixed(2);
     document.getElementById('remaining-balance').textContent = remainingBalance.toFixed(2);
 }
